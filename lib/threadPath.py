@@ -127,14 +127,20 @@ class Scac:
                                 for e in self.keys_e:
                                     # Bekleme işleminde kaldık
                                     if self.count % self.thread == 0 and self.count > 0: 
-                                        self.processes.append(executor.submit(self.urlPathTesting, (url + f + e + a)))
-                                        #asyncio.run(self.races())
+                                        if '?' in url:
+                                            self.past.append(url)
+                                        else:
+                                            self.processes.append(executor.submit(self.urlPathTesting, (url + f + e + a)))
+                                            #asyncio.run(self.races())
+                                            self.count += 1
                                         if self.verbose:  print(Fore.YELLOW+f"{self.delay} seconds in standby mode")
                                         sleep(self.delay)
-                                        self.count += 1
                                     else: 
-                                        self.processes.append(executor.submit(self.urlPathTesting, (url + f + e + a)))
-                                        self.count += 1
+                                        if '?' in url:
+                                            self.past.append(url)
+                                        else:
+                                            self.processes.append(executor.submit(self.urlPathTesting, (url + f + e + a)))
+                                            self.count += 1
                             
              
                                 
@@ -159,14 +165,21 @@ class Scac:
                                 for e in self.keys_e:
                                     # Bekleme işleminde kaldık
                                     if self.count % self.thread == 0 and self.count > 0: 
-                                        self.processes.append(executor.submit(self.urlPathTesting, (self.url + f + e + a)))
-                                        #asyncio.run(self.races())
+                                        if '?' in self.url:
+                                            self.past.append(self.url)
+                                        else:
+                                            self.processes.append(executor.submit(self.urlPathTesting, (self.url + f + e + a)))
+                                            #asyncio.run(self.races())
+                                            self.count += 1
                                         if self.verbose and self.delay != 0: print(Fore.YELLOW+f"{self.delay} seconds in standby mode")
                                         sleep(self.delay)
-                                        self.count += 1
                                     else: 
-                                        self.processes.append(executor.submit(self.urlPathTesting, (self.url + f + e + a)))
-                                        self.count += 1
+                                        if '?' in self.url:
+                                            self.past.append(self.url)
+                                        else:
+                                            self.processes.append(executor.submit(self.urlPathTesting, (self.url + f + e + a)))
+                                            self.count += 1
+                                   
         
         self.finaly()
                 
@@ -187,8 +200,5 @@ class Scac:
                     Fore.LIGHTRED_EX+"*"*int(self.columns) 
                 )
     
-#if __name__ == "__main__":
-    # sc = Scac(urls='https://zuhalsunger.com/', thread=11, delay=5, verbose=True)
-    # sc.urlsOnJson()
-    #Scac(urls='https://zuhalsunger.com/', thread=41, delay=0.5, verbose=False)
+
    
