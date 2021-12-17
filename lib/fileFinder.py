@@ -172,8 +172,7 @@ class ScacDirb:
         def googleSearch():
             links = search(self.query, pause=self.delay)
             for i in links: self.processes.append(i)
-            if self.verbose == True:
-                for i in self.processes: 
+            for i in self.processes: 
                     print(Fore.GREEN + "[+]",Fore.RESET+"%s: %s" % (i, Fore.LIGHTRED_EX+ctime(time())))
         while self.duration <= 10:
             try:
@@ -213,6 +212,7 @@ class ScacDirb:
         rst = sb.searchBing()
         for i in rst:
             self.processes.append(i)
+            print(Fore.GREEN + "[+]",Fore.RESET+"%s: %s" % (i, Fore.LIGHTRED_EX+ctime(time())))
         self.urlsSave()
         
 
@@ -235,6 +235,5 @@ class ScacDirb:
                     Fore.LIGHTRED_EX+"*"*int(self.columns) 
                 )
     
-# if __name__ == '__main__':
-#     sc = ScacDirb('https://www.ademcck.com', thread=10, delay=5, methode='search', verbose=True)
+
    
