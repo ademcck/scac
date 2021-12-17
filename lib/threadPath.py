@@ -129,6 +129,7 @@ class Scac:
                                     if self.count % self.thread == 0 and self.count > 0: 
                                         if '?' in url:
                                             self.past.append(url)
+                                            print(Fore.GREEN + "[+]",Fore.RESET+"%s: %s" % (url, Fore.LIGHTRED_EX+ctime(time())))
                                         else:
                                             self.processes.append(executor.submit(self.urlPathTesting, (url + f + e + a)))
                                             #asyncio.run(self.races())
@@ -138,6 +139,7 @@ class Scac:
                                     else: 
                                         if '?' in url:
                                             self.past.append(url)
+                                            print(Fore.GREEN + "[+]",Fore.RESET+"%s: %s" % (url, Fore.LIGHTRED_EX+ctime(time())))
                                         else:
                                             self.processes.append(executor.submit(self.urlPathTesting, (url + f + e + a)))
                                             self.count += 1
@@ -167,6 +169,7 @@ class Scac:
                                     if self.count % self.thread == 0 and self.count > 0: 
                                         if '?' in self.url:
                                             self.past.append(self.url)
+                                            print(Fore.GREEN + "[+]",Fore.RESET+"%s: %s" % (self.url, Fore.LIGHTRED_EX+ctime(time())))
                                         else:
                                             self.processes.append(executor.submit(self.urlPathTesting, (self.url + f + e + a)))
                                             #asyncio.run(self.races())
@@ -176,6 +179,7 @@ class Scac:
                                     else: 
                                         if '?' in self.url:
                                             self.past.append(self.url)
+                                            print(Fore.GREEN + "[+]",Fore.RESET+"%s: %s" % (self.url, Fore.LIGHTRED_EX+ctime(time())))
                                         else:
                                             self.processes.append(executor.submit(self.urlPathTesting, (self.url + f + e + a)))
                                             self.count += 1
