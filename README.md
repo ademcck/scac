@@ -1,5 +1,5 @@
 # scac
-SCAC is a directory, file and vulnerability research program.
+SCAC scans folder files while simultaneously testing for security vulnerabilities.
 
 
 ```python
